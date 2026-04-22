@@ -1,7 +1,7 @@
 /*
  * pids.c - process related definitions for libproc2
  *
- * Copyright © 2015-2025 Jim Warner <james.warner@comcast.net>
+ * Copyright © 2015-2026 Jim Warner <james.warner@comcast.net>
  * Copyright © 2015-2024 Craig Small <csmall@dropbear.xyz>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,7 +23,6 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
-#include <sort.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,6 +36,7 @@
 #include "devname.h"
 #include "numa.h"
 #include "readproc.h"
+#include "sort.h"
 #include "wchan.h"
 
 #include "procps-private.h"

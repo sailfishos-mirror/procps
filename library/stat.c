@@ -1,7 +1,7 @@
 /*
  * stat.c - cpu/numa related definitions for libproc2
  *
- * Copyright © 2015-2025 Jim Warner <james.warner@comcast.net>
+ * Copyright © 2015-2026 Jim Warner <james.warner@comcast.net>
  * Copyright © 2015-2023 Craig Small <csmall@dropbear.xyz>
  *
  * This library is free software; you can redistribute it and/or
@@ -21,7 +21,6 @@
 
 #include <errno.h>
 #include <fcntl.h>
-#include <sort.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,6 +31,7 @@
 #include <sys/types.h>
 
 #include "numa.h"
+#include "sort.h"
 
 #include "procps-private.h"
 #include "stat.h"

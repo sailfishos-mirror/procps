@@ -1,7 +1,7 @@
 /*
  * diskstats.c - disk I/O related definitions for libproc2
  *
- * Copyright © 2015-2025 Jim Warner <james.warner@comcast.net>
+ * Copyright © 2015-2026 Jim Warner <james.warner@comcast.net>
  * Copyright © 2015-2023 Craig Small <csmall@dropbear.xyz>
  * Copyright © 2003      Albert Cahalan
  * Copyright © 2003      Fabian Frederick
@@ -24,7 +24,6 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <dirent.h>
-#include <sort.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,6 +32,8 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
+
+#include "sort.h"
 
 #include "procps-private.h"
 #include "diskstats.h"

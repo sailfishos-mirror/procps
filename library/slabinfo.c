@@ -1,7 +1,7 @@
 /*
  * slabinfo.c - slab pools related definitions for libproc2
  *
- * Copyright © 2015-2025 Jim Warner <james.warner@comcast.net>
+ * Copyright © 2015-2026 Jim Warner <james.warner@comcast.net>
  * Copyright © 2015-2023 Craig Small <csmall@dropbear.xyz>
  * Copyright © 2004-2006 Albert Cahalan
  * Copyright © 2003      Chris Rivera
@@ -26,7 +26,6 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
-#include <sort.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -35,6 +34,8 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
+
+#include "sort.h"
 
 #include "procps-private.h"
 #include "slabinfo.h"
