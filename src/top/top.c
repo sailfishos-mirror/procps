@@ -453,13 +453,9 @@ static void bye_bye (const char *str) __attribute__((__noreturn__));
 static void bye_bye (const char *str) {
    sigset_t ss;
 
-// POSIX.1 async-signal-safe: sigfillset, sigprocmask, pthread_sigmask
+// POSIX.1 async-signal-safe: sigfillset, pthread_sigmask
    sigfillset(&ss);
-#if defined THREADED_CPU || defined THREADED_MEM || defined THREADED_TSK
    pthread_sigmask(SIG_BLOCK, &ss, NULL);
-#else
-   sigprocmask(SIG_BLOCK, &ss, NULL);
-#endif
    at_eoj();                 // restore tty in preparation for exit
 #ifdef ATEOJ_RPTSTD
 {
@@ -591,24 +587,16 @@ static void sig_abexit (int sig) __attribute__((__noreturn__));
 static void sig_abexit (int sig) {
    sigset_t ss;
 
-// POSIX.1 async-signal-safe: sigfillset, signal, sigemptyset, sigaddset, sigprocmask, pthread_sigmask, raise
+// POSIX.1 async-signal-safe: sigfillset, signal, sigemptyset, sigaddset, pthread_sigmask, raise
    sigfillset(&ss);
-#if defined THREADED_CPU || defined THREADED_MEM || defined THREADED_TSK
    pthread_sigmask(SIG_BLOCK, &ss, NULL);
-#else
-   sigprocmask(SIG_BLOCK, &ss, NULL);
-#endif
    at_eoj();                 // restore tty in preparation for exit
    fprintf(stderr, N_fmt(EXIT_signals_fmt)
       , sig, signal_number_to_name(sig), Myname);
    signal(sig, SIG_DFL);     // allow core dumps, if applicable
    sigemptyset(&ss);
    sigaddset(&ss, sig);
-#if defined THREADED_CPU || defined THREADED_MEM || defined THREADED_TSK
    pthread_sigmask(SIG_UNBLOCK, &ss, NULL);
-#else
-   sigprocmask(SIG_UNBLOCK, &ss, NULL);
-#endif
    raise(sig);               // ( plus set proper return code )
    _exit(EXIT_FAILURE);      // if default sig action is ignore
 } // end: sig_abexit
@@ -4605,7 +4593,7 @@ static void signals_set (void) {
    /* block sigwinch if that ioa function's pselect sigmask unblocks it
       ( eliminates a wait for the next refresh when resizing terminal ) */
    sigaddset(&sa.sa_mask, SIGWINCH);
-   sigprocmask(SIG_BLOCK, &sa.sa_mask, NULL);
+   pthread_sigmask(SIG_BLOCK, &sa.sa_mask, NULL);
 #endif
 } // end: signals_set
 
