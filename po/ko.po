@@ -1,14 +1,14 @@
 # Korean translation of procps-ng package.
-# Copyright (C) 2022 Free Software Foundation, Inc.
+# Copyright (C) 2022, 2023, 2024, 2025, 2026 Free Software Foundation, Inc.
 # This file is distributed under the same license as the procps-ng package.
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2022-2025.
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2022-2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: procps-ng 4.0.6rc1\n"
+"Project-Id-Version: procps-ng 4.0.7rc1\n"
 "Report-Msgid-Bugs-To: procps@freelists.org\n"
 "POT-Creation-Date: 2026-08-04 20:47+1000\n"
-"PO-Revision-Date: 2026-01-12 11:24+0900\n"
+"PO-Revision-Date: 2026-08-05 11:51+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
 "Language: ko\n"
@@ -468,9 +468,8 @@ msgid "Unable to create pid info structure"
 msgstr "PID 정보를 구성할 수 없습니다"
 
 #: src/pgrep.c:290
-#, fuzzy
 msgid "invalid empty list"
-msgstr "부적절한 이름 영역 목록"
+msgstr "부적절한 빈 목록"
 
 #: src/pgrep.c:385
 msgid "Unable to open pidfile"
@@ -3999,7 +3998,7 @@ msgstr ""
 "계속하려면 'q' 또는 <Esc> 를 입력하십시오 "
 
 #: src/top/top_nls.c:689
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Help for Specialized Keys - %s\n"
 "\n"
@@ -4031,27 +4030,26 @@ msgid ""
 msgstr ""
 "특수 키 도움말 - %s\n"
 "\n"
-"아래 키는 일반 top 감시를 멈추지 않고 계속하는 동안 화면 하단의 창 나누기"
-"를 \n"
-"수행합니다. '~1Ctrl~2' 키 명령을 두번 내리면 '~1=~2' 명령으로 나눈 창을 제거"
-"합니다.\n"
+"아래 키는 일반 top 감시를 멈추지 않고 계속하는 동안 화면 하단의 창 나누기를\n"
+"수행합니다. '~1Ctrl~2' 키 명령을 두번 내리면 '~1=~2' 명령으로 나눈 창을\n"
+"제거합니다.\n"
 "\n"
-"아래 키는 첫번째 작업 표시 영역에 적용합니다. Up/Down ~1화살표 키~2\n"
-"는 우선순위가 높은 보기 대상, PID 정렬, 또는 감시 시간 간격이 긴 순으로\n"
+"아래 키는 첫번째 작업 표시 영역에 적용합니다. Up/Down ~1화살표 키~2는\n"
+"우선순위가 높은 보기 대상, PID 정렬, 또는 감시 시간 간격이 긴 순으로\n"
 "확인 대상 프로세스를 선택할 때 사용하는 중요한 키입니다.\n"
-"   ~1^A~6   가용 권한 표시          (Ctrl키 + 'a')\n"
+"   ~1^A~6   가용 권한 표시        (Ctrl키 + 'a')\n"
 "   ~1^G~6   제어 그룹 표시        (Ctrl키 + 'g')\n"
-"   ~1^K~6   명령행 표시               (Ctrl키 + 'k')\n"
-"   ~1^N~6   환경 표시           (Ctrl키 + 'n')\n"
-"   ~1^P~6   이름 영역 표시           (Ctrl키 + 'p')\n"
-"   ~1^U~6   추가 그룹 표시  (Ctrl키 + 'u')\n"
+"   ~1^K~6   명령행 표시           (Ctrl키 + 'k')\n"
+"   ~1^N~6   환경 표시             (Ctrl키 + 'n')\n"
+"   ~1^P~6   이름 영역 표시        (Ctrl키 + 'p')\n"
+"   ~1^U~6   추가 그룹 표시        (Ctrl키 + 'u')\n"
 "\n"
 "'Ctrl+L' 명령은 특정 작업에 국한하지 않습니다. 그러나, top에서 나타낸\n"
 "가장 최근 10건의 메시지를 검토 목적으로 다시 불러옵니다.\n"
-"   ~1^L~6  :기록 메시지 표시       (Ctrl키 + 'l')\n"
+"   ~1^L~6  :기록 메시지 표시      (Ctrl키 + 'l')\n"
 "\n"
 "Tab키(전위) 또는 Shift+Tab 키 조합(후위)은 하단 창에 나타낼 개별 항목\n"
-"을 강조할 때 활용할 수 있습니다..\n"
+"을 강조할 때 활용할 수 있습니다.\n"
 "\n"
 "계속하려면 'q' 또는 <Esc> 키를 입력하십시오 "
 

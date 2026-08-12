@@ -21,10 +21,10 @@
 #                                                     Frédéric Marchal
 msgid ""
 msgstr ""
-"Project-Id-Version: procps-ng 4.0.6rc1\n"
+"Project-Id-Version: procps-ng 4.0.7rc1\n"
 "Report-Msgid-Bugs-To: procps@freelists.org\n"
 "POT-Creation-Date: 2026-08-04 20:47+1000\n"
-"PO-Revision-Date: 2026-01-07 16:35+0100\n"
+"PO-Revision-Date: 2026-08-04 15:44+0200\n"
 "Last-Translator: Frédéric Marchal <fmarchal@perso.be>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -505,9 +505,8 @@ msgid "Unable to create pid info structure"
 msgstr "Impossible de créer la structure des infos pid"
 
 #: src/pgrep.c:290
-#, fuzzy
 msgid "invalid empty list"
-msgstr "liste d'espace de noms invalide"
+msgstr "liste vide invalide"
 
 #: src/pgrep.c:385
 msgid "Unable to open pidfile"
@@ -4095,7 +4094,7 @@ msgstr ""
 "Appuyez sur « q » ou « Éch » pour continuer "
 
 #: src/top/top_nls.c:689
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Help for Specialized Keys - %s\n"
 "\n"

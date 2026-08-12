@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: procps-ng-4.0.6rc1\n"
+"Project-Id-Version: procps-ng-4.0.7rc1\n"
 "Report-Msgid-Bugs-To: procps@freelists.org\n"
 "POT-Creation-Date: 2026-08-04 20:47+1000\n"
-"PO-Revision-Date: 2026-01-07 19:51+0100\n"
+"PO-Revision-Date: 2026-08-04 21:55+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -481,9 +481,8 @@ msgid "Unable to create pid info structure"
 msgstr "Nie można utworzyć struktury informacji pid"
 
 #: src/pgrep.c:290
-#, fuzzy
 msgid "invalid empty list"
-msgstr "błędna lista przestrzeni nazw"
+msgstr "błędna pusta lista"
 
 #: src/pgrep.c:385
 msgid "Unable to open pidfile"
@@ -4025,7 +4024,7 @@ msgstr ""
 "Klawisz 'q' lub <Esc> to kontynuacja "
 
 #: src/top/top_nls.c:689
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Help for Specialized Keys - %s\n"
 "\n"

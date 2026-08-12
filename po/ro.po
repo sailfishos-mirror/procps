@@ -14,14 +14,15 @@
 # Corectare „hezacimal” → „hexazecimal” pentru versiunea 4.0.4-rc1, făcută de R-GC, sep-2023.
 # Actualizare a traducerii pentru versiunea 4.0.5rc1, făcută de R-GC, dec-2024.
 # Actualizare a traducerii pentru versiunea 4.0.6rc1, făcută de R-GC, ian-2026.
+# Actualizare a traducerii pentru versiunea 4.0.7rc1, făcută de R-GC, aug-2026.
 # Actualizare a traducerii pentru versiunea Y, făcută de X, Z(anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: procps-ng 4.0.6rc1\n"
+"Project-Id-Version: procps-ng 4.0.7rc1\n"
 "Report-Msgid-Bugs-To: procps@freelists.org\n"
 "POT-Creation-Date: 2026-08-04 20:47+1000\n"
-"PO-Revision-Date: 2026-01-07 20:38+0100\n"
+"PO-Revision-Date: 2026-08-04 18:20+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -31,7 +32,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: local/fileutils.c:36
 msgid "write error"
@@ -590,9 +591,8 @@ msgid "Unable to create pid info structure"
 msgstr "Nu se poate crea structura de informații pid"
 
 #: src/pgrep.c:290
-#, fuzzy
 msgid "invalid empty list"
-msgstr "listă de spații de nume nevalidă"
+msgstr "listă goală nevalidă"
 
 #: src/pgrep.c:385
 msgid "Unable to open pidfile"
@@ -4346,7 +4346,7 @@ msgstr ""
 "Tastați „q” sau <Esc> pentru a continua "
 
 #: src/top/top_nls.c:689
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Help for Specialized Keys - %s\n"
 "\n"

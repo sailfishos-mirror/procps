@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: procps-ng 4.0.6rc1\n"
+"Project-Id-Version: procps-ng 4.0.7rc1\n"
 "Report-Msgid-Bugs-To: procps@freelists.org\n"
 "POT-Creation-Date: 2026-08-04 20:47+1000\n"
-"PO-Revision-Date: 2026-01-07 22:38+0800\n"
+"PO-Revision-Date: 2026-08-04 23:37+0800\n"
 "Last-Translator: Wenbin Lv <wenbin816@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: local/fileutils.c:36
 msgid "write error"
@@ -462,9 +462,8 @@ msgid "Unable to create pid info structure"
 msgstr "无法创建 pid info 结构"
 
 #: src/pgrep.c:290
-#, fuzzy
 msgid "invalid empty list"
-msgstr "无效的命名空间列表"
+msgstr "无效的空列表"
 
 #: src/pgrep.c:385
 msgid "Unable to open pidfile"
@@ -3959,7 +3958,7 @@ msgstr ""
 "按 'q' 或 <Esc> 继续 "
 
 #: src/top/top_nls.c:689
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Help for Specialized Keys - %s\n"
 "\n"

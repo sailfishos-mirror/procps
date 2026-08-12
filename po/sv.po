@@ -4,13 +4,13 @@
 #
 # Göran Uddeborg <goeran@uddeborg.se>, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2026.
 #
-# $Id: procps-ng.po,v 1.32 2026-01-12 16:06:37+01 göran Exp göran $
+# $Id: procps-ng.po,v 1.35 2026-08-05 21:40:22+02 göran Exp $
 msgid ""
 msgstr ""
-"Project-Id-Version: procps-ng 4.0.6rc1\n"
+"Project-Id-Version: procps-ng 4.0.7rc1\n"
 "Report-Msgid-Bugs-To: procps@freelists.org\n"
 "POT-Creation-Date: 2026-08-04 20:47+1000\n"
-"PO-Revision-Date: 2026-01-13 09:56+0100\n"
+"PO-Revision-Date: 2026-08-05 21:40+0200\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -479,9 +479,8 @@ msgid "Unable to create pid info structure"
 msgstr "Kan inte skapa pid-informationspost"
 
 #: src/pgrep.c:290
-#, fuzzy
 msgid "invalid empty list"
-msgstr "felaktig namnrymdslista"
+msgstr "felaktig tom lista"
 
 #: src/pgrep.c:385
 msgid "Unable to open pidfile"
@@ -4015,7 +4014,7 @@ msgstr ""
 "Tryck ”q” eller <Esc> för att fortsätta "
 
 #: src/top/top_nls.c:689
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Help for Specialized Keys - %s\n"
 "\n"
