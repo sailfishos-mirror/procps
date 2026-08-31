@@ -20,6 +20,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "misc.h"
 #include "tests.h"
@@ -79,6 +80,18 @@ int check_uptime_sprint_short(void *data)
     return (str != NULL && str[0] != '\0');
 }
 
+int check_uptime_snprint_small(void *data)
+{
+    char str[32];
+    int rc;
+    testname = "procps_uptime_snprint() (small buffer)";
+
+    memset(str, 'X', sizeof(str));
+    rc = procps_uptime_snprint(str, 12, 25 * 60 * 60, 1);
+
+    return (rc == 12 && str[12] == 'X' && str[16] == 'X');
+}
+
 TestFunction test_funcs[] = {
     check_uptime,
     check_uptime_nullup,
@@ -86,6 +99,7 @@ TestFunction test_funcs[] = {
     check_uptime_nullall,
     check_uptime_sprint,
     check_uptime_sprint_short,
+    check_uptime_snprint_small,
     NULL,
 };
 
@@ -93,5 +107,3 @@ int main(int argc, char *argv[])
 {
     return run_tests(test_funcs, NULL);
 }
-
-

@@ -231,7 +231,7 @@ static int snprint_uptime_only(
         const int pretty)
 {
 #define print_this(VAL, UNITS) \
-    if ( (l = snprintf(str + pos, size-pos, "%s%d %s", comma > 0 ? ", " : "", (VAL), (UNITS))) >= size) \
+    if ( (l = snprintf(str + pos, size-pos, "%s%d %s", comma > 0 ? ", " : "", (VAL), (UNITS))) >= size-pos) \
         return size; \
     else pos +=l
     size_t l;
@@ -302,7 +302,7 @@ static int snprint_uptime_only(
         }
     } else {
         if (uphours) {
-            if ( (l = snprintf(str + pos, size - pos, "%s%2d:%02d", comma > 0 ? ", " : "", uphours, upminutes)) >= size)
+            if ( (l = snprintf(str + pos, size - pos, "%s%2d:%02d", comma > 0 ? ", " : "", uphours, upminutes)) >= size - pos)
                 return size;
             else pos +=l;
         } else {
