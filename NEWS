@@ -2,11 +2,13 @@ procps-ng-NEXT
 ---------------
   * library
     internal: Various fixes for Hurd                       merge !303
+    internal: tolerate incomplete podman pid isolation     issue #442
   * build: add libpthread if needed                        issue #434
   * kill: Correct exit value for pgrp kills                issue #438
   * pkill: echo with other options                         issue #428
   * sysctl: Really ignore stable_secret                    issue #308
   * top: summary area 'Swap' line can be turned off        issue #436
+  * top: static 3 sec memory update delay eliminated       issue #440
 
 procps-ng-4.0.7
 ---------------
