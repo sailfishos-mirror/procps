@@ -1470,11 +1470,12 @@ PROCPS_EXPORT struct pids_stack *fatal_proc_unmounted (
 
     /* this is very likely the *only* newlib function where the
        context (pids_info) of NULL will ever be permitted */
-    if (!look_up_our_self()
-    || (!return_self))
+
+    // we won't return from next guy if /proc wasn't mounted ...
+    tid = look_up_our_self();
+    if (!return_self)
         return NULL;
 
-    tid = getpid();
     if (!(fetched = procps_pids_select(info, &tid, 1, PIDS_SELECT_PID)))
         return NULL;
     return fetched->stacks[0];

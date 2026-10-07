@@ -1750,23 +1750,22 @@ void closeproc(PROCTAB *PT) {
 
 
 //////////////////////////////////////////////////////////////////////////////////
-int look_up_our_self(void) {
+pid_t look_up_our_self (void) {
     struct utlbuf_s ub = { NULL, 0 };
-    int rc = 0;
-    proc_t p;
+    pid_t tid;
     int fd;
 
-    memset(&p, 0, sizeof(proc_t));
     fd = open("/proc/self", O_PATH|O_DIRECTORY);
     if(fd < 0 || file2str(fd, "stat", &ub) == -1) {
         fprintf(stderr, "Error, do this: mount -t proc proc /proc\n");
         _exit(47);
     }
-    rc = stat2proc(ub.buf, &p); // parse /proc/self/stat
-    close(fd);
-    free_acquired(&p);
+    /* we'll grab the first number in /proc/self/stat which happens to be our pid
+       ( that's a number that was skipped over by the formerly called stat2proc ) */
+    tid = strtol(ub.buf, NULL, 10);
     free(ub.buf);
-    return !rc;
+    close(fd);
+    return tid;
 }
 
 #undef IS_THREAD
