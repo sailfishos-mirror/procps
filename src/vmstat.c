@@ -478,7 +478,7 @@ static void new_format(void)
 	V( 8) = (unsigned)( VMSTAT_GET(vm_info, VMSTAT_PGPGIN, ul_int) / uptime );
 	V( 9) = (unsigned)( VMSTAT_GET(vm_info, VMSTAT_PGPGOUT, ul_int) / uptime );
 	V(10) = (unsigned)( SYSv(stat_INT) / uptime );
-	V(11) = (unsigned)( SYSv(stat_CTX) / Div );
+	V(11) = (unsigned)( SYSv(stat_CTX) / uptime );
 	V(12) = (100*cpu_use + divo2) / Div;
 	V(13) = (100*cpu_sys + divo2) / Div;
 	V(14) = (100*cpu_idl + divo2) / Div;
