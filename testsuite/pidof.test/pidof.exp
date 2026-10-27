@@ -1,0 +1,32 @@
+#
+# Dejagnu tests for pidof - part of procps
+#
+set pidof "${topdir}src/pidof"
+
+set test "pidof with no arguments"
+spawn $pidof
+expect_blank "$test"
+
+make_testproc blah
+
+set test "pidof find pids"
+spawn $pidof $testproc_path
+expect_pass "$test" "^$testproc2_pid\\s$testproc1_pid\\s*$"
+expect_spawn_retval "$test" 0
+
+set test "pidof find pids X separator"
+spawn $pidof -S X $testproc_path
+expect_pass "$test" "^${testproc2_pid}X$testproc1_pid\\s*$"
+
+set test "pidof find pids nul separator"
+spawn $pidof -S "" $testproc_path
+expect_pass "$test" "^${testproc2_pid}\\\\0$testproc1_pid\\s*$"
+expect_spawn_retval "$test" 0
+
+set test "pidof nonexistent pids"
+spawn $pidof "thisisnotarealprocessihope"
+expect_blank "$test"
+spawn $pidof "thisisnotarealprocessihope"
+expect_spawn_retval "$test" 1
+
+kill_testproc

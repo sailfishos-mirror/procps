@@ -398,6 +398,8 @@ int main (int argc, char **argv)
 						first_pid = 0;
 						printf ("%ld", (long) procs[i].pid);
 					} else {
+						if (separator[0] == '\0')
+                                                    printf("\\0");
 						printf ("%s%ld", separator, (long) procs[i].pid);
 					}
 				}

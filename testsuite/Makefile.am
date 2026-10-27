@@ -31,6 +31,10 @@ if BUILD_KILL
 DEJATOOL += kill
 endif
 
+if BUILD_PIDOF
+DEJATOOL += pidof
+endif
+
 if BUILD_W
 DEJATOOL += w
 endif

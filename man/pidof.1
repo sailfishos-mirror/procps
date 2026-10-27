@@ -1,6 +1,6 @@
 .\"
 .\" Copyright (c) 2018-2023 Jim Warner <james.warner@comcast.net>
-.\" Copyright (c) 2019-2023 Craig Small <csmall@dropbear.xyz>
+.\" Copyright (c) 2019-2026 Craig Small <csmall@dropbear.xyz>
 .\" Copyright (c) 2013      Jaromir Capik <jcapik@redhat.com>
 .\" Copyright (c) 1998      Miquel van Smoorenburg
 .\"
@@ -10,7 +10,7 @@
 .\" (at your option) any later version.
 .\"
 .\"
-.TH PIDOF 1 2023-01-16 procps-ng
+.TH PIDOF 1 2026-10-27 procps-ng
 .SH NAME
 pidof \- find the process ID of a running program
 .SH SYNOPSIS
@@ -54,7 +54,8 @@ program, in other words the calling shell or shell script.
 Shows all thread ids instead of pids.
 .IP "\fB-S\fP \fIseparator\fP"
 Use \fIseparator\fP as a separator put between pids. Used only when
-more than one pids are printed for the program.
+more than one pids are printed for the program. If \fIseparator\fR
+is '' then pids are separated by the null byte \fI'\\0'\fR.
 The \fB\-d\fR option is an alias for this option for sysvinit
 .B pidof
 compatibility.
