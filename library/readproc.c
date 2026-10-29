@@ -791,9 +791,8 @@ static char **file2strvec(int dirfd, const char *what) {
     int fd, tot = 0, n, c, end_of_file = 0;
     int align;
 
-    if (faccessat(dirfd, what, R_OK, AT_EACCESS) == -1 ||
-            (fd = openat(dirfd, what, O_RDONLY, 0)) == -1)
-        return NULL;
+    fd = openat(dirfd, what, O_RDONLY, 0);
+    if(fd==-1) return NULL;
 
     /* read whole file into a memory buffer, allocating as we go */
     while ((n = read(fd, buf, sizeof buf - 1)) >= 0) {
@@ -995,7 +994,8 @@ static int fill_cmdline_cvt (int dirfd, proc_t *restrict p) {
     // guarantees the caller a valid proc_t.environ pointer.
 static int fill_environ_cvt (int dirfd, proc_t *restrict p) {
     dst_buffer[0] = '\0';
-    if (read_unvectored(src_buffer, MAX_BUFSZ, dirfd, "environ", ' '))
+    if (faccessat(dirfd, "environ", R_OK, AT_EACCESS) == 0
+    && (read_unvectored(src_buffer, MAX_BUFSZ, dirfd, "environ", ' ') != 0))
         escape_str(dst_buffer, src_buffer, MAX_BUFSZ);
     if (dst_buffer[0]) {
         if (!(p->environ = strdup(dst_buffer)))
@@ -1314,7 +1314,8 @@ static proc_t *simple_readproc(PROCTAB *restrict const PT, proc_t *restrict cons
         p->egroup = pwcache_get_group(p->egid);
 
     if (flags & PROC_FILLENV)                   // read /proc/#/environ
-        if (!(p->environ_v = file2strvec(PT->pidfd, "environ")))
+        if (faccessat(PT->pidfd, "environ", R_OK, AT_EACCESS) != 0
+        || ((p->environ_v = file2strvec(PT->pidfd, "environ")) == NULL))
             rc += vectorize_dash_rc(&p->environ_v);
     if (flags & PROC_EDITENVRCVT)
         rc += fill_environ_cvt(PT->pidfd, p);
@@ -1457,7 +1458,8 @@ static proc_t *simple_readtask(PROCTAB *restrict const PT, proc_t *restrict cons
         rc += fill_cmdline_cvt(PT->taskfd, t);
 
     if (flags & PROC_FILLENV)                   // read /proc/#/task/#/environ
-        if (!(t->environ_v = file2strvec(PT->taskfd, "environ")))
+        if (faccessat(PT->taskfd, "environ", R_OK, AT_EACCESS) != 0
+        || ((t->environ_v = file2strvec(PT->taskfd, "environ")) == NULL))
             rc += vectorize_dash_rc(&t->environ_v);
     if (flags & PROC_EDITENVRCVT)
         rc += fill_environ_cvt(PT->taskfd, t);

@@ -3,7 +3,7 @@ procps-ng-NEXT
   * library
     internal: Various fixes for Hurd                       merge !303
     internal: tolerate incomplete podman pid isolation     issue #442
-    internal: use access before open in filestr2vec()      issue #443
+    internal: reduce exposure to EACCES for 'environ'      issue #443
   * build: add libpthread if needed                        issue #434
   * kill: Correct exit value for pgrp kills                issue #438
   * pgrep: Limit what items we need to query
