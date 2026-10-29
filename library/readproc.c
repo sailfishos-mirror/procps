@@ -1,7 +1,7 @@
 /*
  * readproc - interface to process table
  *
- * Copyright © 2002-2025 Craig Small <csmall@dropbear.xyz>
+ * Copyright © 2002-2026 Craig Small <csmall@dropbear.xyz>
  * Copyright © 2011-2026 Jim Warner <james.warner@comcast.net>
  * Copyright © 1998-2010 Albert Cahalan
  * Copyright © 2010-2011 Jan Görig <jgorig@redhat.com>
@@ -791,8 +791,9 @@ static char **file2strvec(int dirfd, const char *what) {
     int fd, tot = 0, n, c, end_of_file = 0;
     int align;
 
-    fd = openat(dirfd, what, O_RDONLY, 0);
-    if(fd==-1) return NULL;
+    if (faccessat(dirfd, what, R_OK, AT_EACCESS) == -1 ||
+            (fd = openat(dirfd, what, O_RDONLY, 0)) == -1)
+        return NULL;
 
     /* read whole file into a memory buffer, allocating as we go */
     while ((n = read(fd, buf, sizeof buf - 1)) >= 0) {
