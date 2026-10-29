@@ -6,6 +6,7 @@ procps-ng-NEXT
     internal: use access before open in filestr2vec()      issue #443
   * build: add libpthread if needed                        issue #434
   * kill: Correct exit value for pgrp kills                issue #438
+  * pgrep: Limit what items we need to query
   * pidof: -S '' uses NUL as separator                     issue #419
   * pkill: echo with other options                         issue #428
   * sysctl: Really ignore stable_secret                    issue #308

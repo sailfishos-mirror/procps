@@ -19,6 +19,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
+#include <unistd.h>
 
 #include "pids.h"
 #include "tests.h"
@@ -60,11 +61,26 @@ int check_fatal_proc_unmounted(void *data)
 	    ( PIDS_VAL(1, ul_int, stack) > 0));
 }
 
+int check_pids_with_noop(void *data)
+{
+    pid_t pid;
+    struct pids_info *info = NULL;
+    struct pids_fetch *fetched;
+    enum pids_item noop_items[] = { PIDS_noop, PIDS_ID_PID, PIDS_ID_PID };
+    testname = "check_pids_with_noop";
+
+    pid = getpid();
+    return ( (procps_pids_new(&info, noop_items, 3) == 0) &&
+            ( (fetched = procps_pids_select(info, &pid, 1, PIDS_SELECT_PID)) != NULL) &&
+            ( PIDS_VAL(1, s_int, fetched->stacks[0]) == pid));
+}
+
 TestFunction test_funcs[] = {
     check_pids_new_nullinfo,
     // skipped, ask Jim check_pids_new_toomany,
     check_pids_new_and_unref,
     check_fatal_proc_unmounted,
+    check_pids_with_noop,
     NULL };
 
 int main(int argc, char *argv[])

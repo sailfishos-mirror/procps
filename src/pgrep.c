@@ -71,20 +71,20 @@ enum pids_item Items[] = {
     PIDS_ID_PPID,
     PIDS_ID_PGRP,
     PIDS_ID_EUID,
-    PIDS_ID_RUID,
-    PIDS_ID_RGID,
+    PIDS_noop, //PIDS_ID_RUID,
+    PIDS_noop, //PIDS_ID_RGID,
     PIDS_ID_SESSION,
     PIDS_ID_TGID,
     PIDS_TICS_BEGAN,
     PIDS_TTY_NAME,
     PIDS_CMD,
     PIDS_CMDLINE,
-    PIDS_CMDLINE_V,
+    PIDS_noop, //PIDS_CMDLINE_V,
     PIDS_STATE,
     PIDS_TIME_ELAPSED,
-    PIDS_CGROUP_V,
-    PIDS_SIGCATCH,
-    PIDS_ENVIRON_V
+    PIDS_noop, //PIDS_CGROUP_V,
+    PIDS_noop, //PIDS_SIGCATCH,
+    PIDS_noop //PIDS_ENVIRON_V
 };
 #define ITEMS_COUNT (sizeof Items / sizeof *Items)
 
@@ -851,6 +851,20 @@ static struct el * select_procs (int *num)
         errx(EXIT_FATAL,
               _("Error reading reference namespace information\n"));
     }
+
+    /* Enable additional reads, if required */
+    if (opt_ruid)
+        Items[EU_RUID] = PIDS_ID_RUID;
+    if (opt_rgid)
+        Items[EU_RGID] = PIDS_ID_RGID;
+    if (opt_shell_quote && opt_longlong)
+        Items[EU_CMDLINE_V] = PIDS_CMDLINE_V;
+    if (opt_cgroup)
+        Items[EU_CGROUP] = PIDS_CGROUP_V;
+    if (require_handler)
+        Items[EU_SIGCATCH] = PIDS_SIGCATCH;
+    if (opt_env)
+        Items[EU_ENVIRON] = PIDS_ENVIRON_V;
 
     if (procps_pids_new(&info, Items, ITEMS_COUNT) < 0)
         errx(EXIT_FATAL,
